@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>加熱時間換算</title>
+	<link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+<div class="container">
+	<h1 class="noprint">加熱時間換算</h1>
+	<div class="pages" id="pages">
+		<div id="page-index">
+			<div>
+				<fieldset>
+					<legend>加熱時間</legend>
+					<p>
+						<label class="unit-w">
+							出力
+							<input type="number" id="calc-def-watt"
+								min="10" max="9999" step="10" value="500"/><!--
+						--></label>
+					</p>
+					<p>
+						<label class="large" id="calc-def-time"></label>
+					</p>
+				</fieldset>
+				<p>&darr;</p>
+				<div>
+					<p>
+						<label class="unit-w">
+							出力
+							<input type="number" id="calc-watt"
+								min="10" max="9999" step="10" value="800" /><!--
+						--></label>
+					</p>
+					<hr />
+					<ul class="calc-result" id="calc-result">
+						<li>
+							<div id="calc-time">
+								<span class="large">
+									<span class="unit-min" id="calc-m"></span>
+									<span class="unit-sec" id="calc-s"></span>
+								</span>
+							</div>
+						</li>
+						<li>
+							<div id="calc-diff-parent">
+								<span class="unit-sec" id="calc-diff"></span>
+							</div>
+						</li>
+						<li>
+							<div>
+								<span class="unit-kj" id="calc-kj"></span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<br />
+			<div>
+				<p>
+					<a href="#table-form">早見表</a>
+					&middot;
+					<a href="#game">計算練習</a>
+				</p>
+			</div>
+		</div>
+		
+		<div id="page-table">
+			<h2 class="noprint">早見表</h2>
+			<div>
+				<div class="table-container" id="table-container"></div>
+			</div>
+			<div class="noprint">
+				<p>
+					<a href="#table-form">戻る</a>
+				</p>
+			</div>
+		</div>
+		
+		<div id="page-table-form">
+			<h2>早見表</h2>
+			<div>
+				<form name="table-config">
+					<fieldset>
+						<legend>設定</legend>
+						<p>
+							<label class="unit-min">
+								<input type="number" name="max"
+									required min="1" max="60" value="4" /><!--
+							--></label>
+							<label>
+								<select name="mode">
+									<option>以下</option>
+									<option>未満</option>
+								</select>
+								まで
+							</label>
+							<label>
+								<select name="step">
+									<option value="1">1 秒</option>
+									<option value="5">5 秒</option>
+									<option value="10" selected>10 秒</option>
+									<option value="15">15 秒</option>
+									<option value="30">30 秒</option>
+									<option value="60">1 分</option>
+								</select>
+								刻み
+							</label>
+						</p>
+						<p>
+							<label class="unit-w">
+								<input type="number" name="watt[]"
+									required min="10" max="9999" step="10" value="500" /><!--
+							--></label>
+							<label class="unit-w">
+								<input type="number" name="watt[]"
+									required min="10" max="9999" step="10" value="600" /><!--
+							--></label>
+							<label class="unit-w">
+								<input type="number" name="watt[]" min="10" max="9999" step="10" value="800" /><!--
+							--></label>
+						</p>
+					</fieldset>
+					<p>
+						<input type="submit" value="適用" />
+					</p>
+				</form>
+			</div>
+			<div>
+				<p>
+					<a href="#">戻る</a>
+				</p>
+			</div>
+		</div>
+		
+		<div id="page-game">
+			<h2>計算練習</h2>
+			<div>
+				<form name="game-config">
+					<fieldset>
+						<legend>設定</legend>
+						<p>
+							<label>
+								問題数
+								<input type="number" name="num"
+									required min="1" max="999" value="10" />
+							</label>
+							&nbsp;
+							<label>
+								小数
+								<select name="round">
+									<option>切り上げ</option>
+									<option selected>四捨五入</option>
+									<option>切り捨て</option>
+								</select>
+							</label>
+						</p>
+						<p>
+							<label class="unit-min">
+								<input type="number" name="max"
+									required min="1" max="60" value="10" /><!--
+							--></label>
+							まで
+							<label>
+								<select name="step">
+									<option value="1">1 秒</option>
+									<option value="5" selected>5 秒</option>
+									<option value="10">10 秒</option>
+									<option value="30">30 秒</option>
+									<option value="60">1 分</option>
+								</select>
+								刻み
+							</label>
+						</p>
+						<p>
+							<label class="unit-w">
+								<input type="number" name="from"
+									required min="10" max="9999" step="10" value="500" /><!--
+							--></label>
+							&rarr;
+							<label class="unit-w">
+								<input type="number" name="to"
+									required min="10" max="9999" step="10" value="800" /><!--
+							--></label>
+						</p>
+					</fieldset>
+					<p>
+						<input type="submit" value="開始" />
+					</p>
+				</form>
+			</div>
+			<div>
+				<p>
+					<a href="#">戻る</a>
+				</p>
+			</div>
+		</div>
+		
+		<div id="page-game-play">
+			<h2>計算練習</h2>
+			<div>
+				<p>
+					<span class="left">
+						問 <span id="game-play-qi"></span>/<span id="game-play-qn"></span>
+					</span>
+					<span class="right">
+						<span class="unit-w" id="game-play-from"></span>
+						&rarr;
+						<span class="unit-w" id="game-play-to"></span>
+						（<span id="game-play-round"></span>）
+					</span>
+					<span class="clear"></span>
+				</p>
+				<p>
+					<span class="large">
+						<span class="unit-min" id="game-play-m"></span>
+						<span class="unit-sec" id="game-play-s"></span>
+					</span>
+				</p>
+				<p>
+					<label class="large" id="game-play-answer"></label>
+				</p>
+				<hr />
+				<p>
+					<input type="button" id="game-play-abort" value="中止" />
+					<input type="button" id="game-play-next" value="決定" />
+				</p>
+			</div>
+		</div>
+		
+		<div id="page-game-result">
+			<h2>計算練習</h2>
+			<div>
+				<h3>成績</h3>
+				<p>
+					<span class="unit-w" id="game-result-from"></span>
+					&rarr;
+					<span class="unit-w" id="game-result-to"></span>
+					（<span id="game-result-round"></span>）
+				</p>
+				<ol class="game-result" id="game-result-list"><li></li></ol>
+				<p>
+					所要時間:
+					<span class="unit-min" id="game-result-m"></span>
+					<span class="unit-sec" id="game-result-s"></span>
+				</p>
+				<hr />
+				<p>
+					<input type="button" id="game-result-back" value="了解" />
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

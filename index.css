@@ -1,0 +1,198 @@
+
+.container {
+	margin: auto;
+	max-width: 400px;
+	text-align: center;
+}
+
+.pages {
+	display: none;
+}
+
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.clear {
+	display: block;
+	clear: both;
+}
+
+.large {
+	font-size: 1.5em;
+}
+
+.time-zero {
+	color: darkgray;
+}
+.time-zero .unit-min:before {
+	content: "0";
+}
+.time-zero .unit-sec:before {
+	content: "00";
+}
+
+.unit-min:after, .unit-sec:after, .unit-kj:after, .unit-w:after {
+	font-size: 0.75em;
+	color: dimgray;
+}
+.unit-min:after {
+	content: "分 ";
+}
+.unit-sec:after {
+	content: "秒 ";
+}
+.unit-kj:after {
+	content: "kJ ";
+}
+.unit-w:after {
+	content: "W ";
+}
+
+.timeinput {
+	display: inline-block;
+	position: relative;
+	z-index: 0;
+	width: 5.5em;
+	
+	white-space: pre;
+	cursor: text;
+	user-select: none;
+}
+.timeinput, .timeinput input {
+	padding: 2px 3px;
+	text-align: right;
+}
+
+.timeinput-clear {
+	position: absolute;
+	top: 0; bottom: 0;
+	left: 2px;
+	padding-right: 2px;
+	padding-left: 2px;
+	color: gray;
+	cursor: pointer;
+}
+.timeinput-clear:hover {
+	color: red;
+}
+.timeinput-clear:active {
+	color: lightgray;
+}
+.timeinput-clear:before {
+	content: "\0d7";
+	font-size: 0.5em;
+	vertical-align: middle;
+}
+
+.timeinput-zero {
+	color: lightgray;
+}
+.timeinput-zero:before {
+	content: "0";
+}
+
+.timeinput-min:after, .timeinput-sec:after {
+	font-size: 0.75em;
+	color: gray;
+}
+.timeinput-min:after {
+	content: "分 ";
+}
+.timeinput-sec:after {
+	content: "秒 ";
+}
+
+.timeinput input {
+	box-sizing: border-box;
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	z-index: -1;
+	width: 100%;
+	max-width: none !important;
+	
+	font-size: 1em;
+	pointer-events: none;
+	-moz-appearance: textfield;
+}
+.timeinput input::-webkit-outer-spin-button,
+.timeinput input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.calc-result {
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 60%;
+	text-align: left;
+	white-space: nowrap;
+}
+.calc-result div {
+	text-align: right;
+}
+.calc-result-invalid div {
+	color: darkgray;
+}
+
+.table-container table {
+	margin: auto;
+	white-space: nowrap;
+}
+.table-container td {
+	text-align: left;
+}
+.table-container th + th, .table-container td + td {
+	border-left: 1em solid transparent;
+}
+
+.table-container tr {
+	line-height: 0;
+}
+.table-container span.time {
+	display: inline-block;
+}
+.table-hidden .time {
+	display: none !important;
+}
+
+.game-result {
+	text-align: left;
+	white-space: nowrap;
+}
+.game-result .time {
+	display: inline-block;
+	width: 5em;
+	text-align: right;
+}
+.game-result-false .time, .game-result-true .time {
+	display: inline;
+	font-size: 0.75em;
+	text-align: left;
+	vertical-align: middle;
+}
+
+.game-result-false:before, .game-result-true:before {
+	display: inline-block;
+	width: 1.25em;
+	text-align: center;
+}
+.game-result-true:before {
+	content: "\25cb";
+}
+.game-result-false:before {
+	content: "\d7";
+	color: red;
+}
+
+input[type="number"] {
+	max-width: 6em;
+}
+
+@media print {
+	.noprint {
+		display: none !important;
+	}
+}
